@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highschool & Diploma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #dcc3f1;
+        }
+
+        header {       
+            height: 200px;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        nav {
+            background-color: #a384af;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Dropdown Menu */
+        nav .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        nav .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 20px;
+            background-color: #a384af;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+        }
+
+        nav a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: black;
+        }
+
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #a384af;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        nav .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        nav .dropdown-content a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .content img {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px 0;
+        }
+
+        .gallery img {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+        }
+
+        /* Table with image section */
+        table {
+            width: 70%; /* Adjust table width */
+            margin: 20px auto; /* Center the table */
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        /* Photo Grid */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .column {
+            flex: 25%;
+            max-width: 25%;
+            padding: 0 10px;
+        }
+
+        .column img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #6e4c7b;
+            color: white;
+            text-align: center;
+            padding: 0.5px;
+            position: fixed;
+            width: 100%;
+            font-size: 0.6em;
+            bottom: 0;
+        }
+        .disclaimer {
+            font-size: 0.75em;
+            color: #ccc;
+        }
+
+        /* Sticky Social Media Bar */
+        .social-bar {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .social-bar a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-bar a:hover {
+            background-color: #ddd;
+        }
+
+        .social-bar a.instagram { background-color: #C13584; color: white; }
+        .social-bar a.x { background-color: #1DA1F2; color: white; }
+        .social-bar a.youtube { background-color: #FF0000; color: white; }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 60px; /* Above the footer */
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .back-to-top:hover {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation Area -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="aboutme.html">About Me</a>
+    <div class="dropdown">
+        <button class="dropbtn">Education</button>
+        <div class="dropdown-content">
+            <a href="edu.html">Elementary & Middle School</a>
+            <a href="highschool.html">Highschool & Diploma</a>
+        </div>
+    </div>
+    <a href="myhobby.html">My Hobby</a>
+    <a href="gallery.html">My Gallery</a>
+    <a href="family.html">Family</a>
+    <a href="friends.html">Friends</a>
+</nav>
+
+
+<center><h2>Highschool & Diploma</h2></center>
+<table>
+    <tr>
+        <th>Logo</th>
+        <th>Name & Address</th>
+        <th>Experiences</th>
+    </tr>
+    <tr>
+        <td><img src="image/smksp.png"></td>
+        <td>SMK Seri Pekan, 26600 Pekan, Pahang</td>
+        <td>Three years in SMK Seri Pekan was simply priceless to me. My heart has particular place for it. Back then, I was clueless and couldn't have given enough attention. Though my friends are encouraging, I am average academically. They always support me when I learn a little sluggish. As it seems, boarding school is not simple. I have to disicpline myself to get up early, goes to school, returns to similar schedule. I used to sneak a phone back then. During my stay, there are plenty of bittersweet memories. </td>
+    </tr>
+    <tr>
+        <td><img src="image/smt.png"></td>
+        <td>SM Teknik Kuantan, Lorong Alor Akar 76, Taman Aman, 25250 Kuantan, Pahang</td>
+        <td>For those who do not know, Technical Institute Kuantan is just for upper form, which includes grades 4 and 5. A number of technical courses are offered, including accounting, engineering, mechanical, and electrical. For SPM, ten subjects must be taken. I found it difficult at first. That's when I took accounting. Among other things, we have a ton of extra lessons and endless assignments. Sincerely, it was hard, but I made it through high school. Back in Form 5, I was chosen to be MPP. I was a member of the team that edited our school magazine. I could always count on my roommates and classmates to support me. They are such a blessing to me.</td>
+    </tr>
+    <tr>
+        <td><img src="image/uitm.png"></td>
+        <td>UiTM Cawangan Kedah, 08400 Merbok, Kedah</td>
+        <td>In March 2023, I began working towards my diploma in library informatics. Since it was my first time being away from home, it was really difficult for me. While it is true that I attended boarding school from 2017 to 2021, I have never lived so far away from home. My goal is to earn a first-class diploma, therefore I prepare myself to remain optimistic. I am constantly learning new things that help me become a better person. I've known my classmates since the first semester, and they never fail to support me when I need it. I am really grateful to them for supporting me through everything. </td>
+    </tr>
+
+</table>
+
+<div class="row">
+    <div class="column">
+        <img src="image/bday2.jpg">
+        <img src="image/addcs.jpg">
+        <img src="image/comp.jpg">
+        <img src="image/gurl.jpg">
+        <img src="image/ppap.jpg">
+        <img src="image/prep.jpg">
+        <img src="image/sem3.jpg">
+        <img src="image/spek.jpg">
+        <img src="image/tv.jpg">
+        <img src="image/ustzh.jpg">
+    </div>
+    <div class="column">
+        <img src="image/class.jpg">
+        <img src="image/fav2.jpg">
+        <img src="image/field.jpg">
+        <img src="image/gang.jpg">
+        <img src="image/pp.jpg">
+        <img src="image/pt3.jpg">
+        <img src="image/sem1.jpg">
+        <img src="image/titan.jpg">
+    </div>
+</div>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+<script>
+    // Function to scroll to the top smoothly
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    // Show or hide the "Back to Top" button based on scroll position
+    window.onscroll = function() {
+        const button = document.querySelector('.back-to-top');
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    };
+</script>
+<br>
+<br>
+
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2024 Shasha Personal Website. All rights reserved.</p>
+    <p class="disclaimer">This website is best viewed in modern browsers like Chrome, Firefox, or Safari. Last updated: December 2024.</p>
+</footer>
+
+</body>
+</html>

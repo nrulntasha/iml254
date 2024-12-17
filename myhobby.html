@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hobby - Personal Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #dcc3f1;
+        }
+
+        header {
+            height: 200px;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        nav {
+            background-color: #a384af;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Dropdown Menu */
+        nav .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        nav .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 20px;
+            background-color: #a384af;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+        }
+
+        nav a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: black;
+        }
+
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #a384af;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        nav .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        nav .dropdown-content a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .content img {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #6e4c7b;
+            color: white;
+            text-align: center;
+            padding: 0.5px;
+            position: fixed;
+            width: 100%;
+            font-size: 0.6em;
+            bottom: 0;
+        }
+        .disclaimer {
+            font-size: 0.75em;
+            color: #ccc;
+        }
+
+        /* Sticky Social Media Bar */
+        .social-bar {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .social-bar a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-bar a:hover {
+            background-color: #ddd;
+        }
+
+        .social-bar a.instagram { background-color: #C13584; color: white; }
+        .social-bar a.x { background-color: #1DA1F2; color: white; }
+        .social-bar a.youtube { background-color: #FF0000; color: white; }
+
+        /* Table with image section */
+        table {
+            width: 70%; /* Adjust table width */
+            margin: 20px auto; /* Center the table */
+            border-collapse: collapse;
+        }
+
+        /* Card Styles */
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: #fff;
+            width: 250px;
+            height: 350px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-10px); /* Slight lift on hover */
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .card-body {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .card-body h3 {
+            margin: 10px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .card-body p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #555;
+        }
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 60px; /* Above the footer */
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .back-to-top:hover {
+            opacity: 1;
+        }
+table, th, td {
+  border: 3px solid white;
+  border-collapse: collapse;
+}
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation Area -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="aboutme.html">About Me</a>
+    <div class="dropdown">
+        <button class="dropbtn">Education</button>
+        <div class="dropdown-content">
+            <a href="edu.html">Elementary & Middle School</a>
+            <a href="highschool.html">Highschool & Diploma</a>
+        </div>
+    </div>
+    <a href="myhobby.html">My Hobby</a>
+    <a href="gallery.html">My Gallery</a>
+    <a href="family.html">Family</a>
+    <a href="friends.html">Friends</a>
+</nav>
+
+
+
+
+<!-- Main Content Section -->
+<div class="content">
+    <h2>My Hobbies</h2>
+    <p>I mentioned how much I like reading books on my last page. This page might not be sufficient to mention every book I've read, so I've shared a few that I think are intriguing with you all. Everywhere I go, I also enjoy listening to music. According to one researcher, music promotes relaxation. It's true that I experience a range of emotions when I listen to music. It might be joyful, relaxing, loving, angry, or sorrowful. So, songs are a big part of my existence. I want to tell you about my fave vocalists up till recently!</p>
+</div>
+
+
+<center><h2>My Favourite singers</h2></center
+
+<!-- Cards for Favorite Singers -->
+<div class="card-container">
+    <!-- Singer 1 -->
+    <div class="card">
+        <img src="image/dpr.jpeg" alt="DPR IAN">
+        <div class="card-body">
+            <h3>DPR IAN</h3>
+            <p>Genre: R&B</p>
+            <p>Favorite Song: Nerves</p>
+        </div>
+    </div>
+
+    <!-- Singer 2 -->
+    <div class="card">
+        <img src="image/lana.jpeg">
+        <div class="card-body">
+            <h3>Lana Del Rey</h3>
+            <p>Genre: Pop</p>
+            <p>Favorite Song: National Anthem</p>
+        </div>
+    </div>
+
+    <!-- Singer 3 -->
+    <div class="card">
+        <img src="image/grey.jpeg">
+        <div class="card-body">
+            <h3>Chris Grey</h3>
+            <p>Genre: R&B</p>
+            <p>Favorite Song: Need It</p>
+        </div>
+    </div>
+
+    <!-- Singer 4 -->
+    <div class="card">
+        <img src="image/taylor.jpeg" alt="Taylor Swift">
+        <div class="card-body">
+            <h3>Taylor Swift</h3>
+            <p>Genre: Indie, Pop</p>
+            <p>Favorite Song: Back to December</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="image/josh.jpeg" alt="Josh Makazo">
+        <div class="card-body">
+            <h3>Josh Makazo</h3>
+            <p>Genre: R&B</p>
+            <p>Favorite Song: Human Nature</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="image/tn.jpeg" alt="The Neighbourhood">
+        <div class="card-body">
+            <h3>The Neighbourhood</h3>
+            <p>Genre: Indie</p>
+            <p>Favorite Song: Softcore</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="image/mel.jpeg">
+        <div class="card-body">
+            <h3>Mellina Tey</h3>
+            <p>Genre: R&B</p>
+            <p>Favorite Song: Before I move on</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="image/bayou.jpeg">
+        <div class="card-body">
+            <h3>Bayou</h3>
+            <p>Genre: R&B, Pop</p>
+            <p>Favorite Song: Muse</p>
+        </div>
+    </div>
+
+<div class="spotify-playlist-container">
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0ESJ5Aq7lze6uvaTuFACyJ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+
+</div>
+
+<center><h2>Books that I've read</h2></center>
+
+<table align="center" cellspacing="3" cellpadding="3">
+  <tr>
+    <th>Title </th>
+    <th>Author</th> 
+    <th>Genre</th>
+  </tr>
+  <tr>
+    <td>Love Hypothesis</td>
+    <td>Ali Hazelwood</td>
+    <td>Fiction, Romance</td>
+  </tr>
+  <tr>
+    <td>Throttled</td>
+    <td>Lauren Asher</td>
+    <td>Fiction, Romance</td>
+  </tr>
+      <td>The princess save herself in this one</td>
+    <td>Amanda Lovelace</td>
+    <td> Poetry, Instapoetry </td>
+  </tr>
+  <tr>
+    <td>Twisted Love</td>
+    <td>Ana Huang</td>
+    <td>Fiction, Romance</td>
+  </tr>
+  <tr>
+    <td>Milk and Honey</td>
+    <td>Rupi Kaur</td>
+    <td> Feminist poetry, Instapoetry </td>
+  </tr>
+    <tr>
+    <td>Ugly Love</td>
+    <td>Coolen Hoover</td>
+    <td> Contemporary Romance,Fiction </td>
+  </tr>
+</table>
+
+
+<div class="social-bar">
+    <a href="https://instagram.com/tsharahim" target="_blank" class="instagram" title="Instagram">IG</a>
+    <a href="https://x.com/sharosee__" target="_blank" class="x" title="X (formerly Twitter)">X</a>
+    <a href="https://www.youtube.com/@nrulntasha2" target="_blank" class="youtube" title="YouTube">YT</a>
+</div>
+
+
+<!-- Back to Top Button -->
+<button class="back-to-top" onclick="scrollToTop()">↑</button>
+<script>
+    // Function to scroll to the top smoothly
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    // Show or hide the "Back to Top" button based on scroll position
+    window.onscroll = function() {
+        const button = document.querySelector('.back-to-top');
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    };
+</script>
+<br>
+<br>
+<br> 
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2024 Shasha Personal Website. All rights reserved.</p>
+    <p class="disclaimer">This website is best viewed in modern browsers like Chrome, Firefox, or Safari. Last updated: December 2024.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Family</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #dcc3f1;
+        }
+
+        header {
+            height: 200px;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        nav {
+            background-color: #a384af;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Dropdown Menu */
+        nav .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        nav .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 20px;
+            background-color: #a384af;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+        }
+
+        nav a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: black;
+        }
+
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #a384af;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        nav .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        nav .dropdown-content a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .content img {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #6e4c7b;
+            color: white;
+            text-align: center;
+            padding: 0.5px;
+            position: fixed;
+            width: 100%;
+            font-size: 0.6em;
+            bottom: 0;
+        }
+        .disclaimer {
+            font-size: 0.75em;
+            color: #ccc;
+        }
+
+        .social-bar {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .social-bar a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-bar a:hover {
+            background-color: #ddd;
+        }
+
+        .social-bar a.instagram { background-color: #C13584; color: white; }
+        .social-bar a.x { background-color: #1DA1F2; color: white; }
+        .social-bar a.youtube { background-color: #FF0000; color: white; }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 60px; /* Above the footer */
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .back-to-top:hover {
+            opacity: 1;
+        }
+
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #333;
+            color: white;
+        }
+
+        table img {
+            width: 100%;
+            height: auto;
+            max-width: 150px;
+            border-radius: 8px;
+        }
+
+         /* Flexbox Container for Family Member Images */
+        .family-members-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 5px;
+            margin-top: 5px;
+        }
+
+        .image-container {
+            position: relative;
+            width: 250px;
+            height: 350px;
+            margin: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            flex: 1 1 calc(10%- 20px); /* Adjust to fit 3 items per row */
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+
+        /* Scrollable Gallery Styles */
+        .gallery-container {
+            display: flex;
+            overflow-x: scroll;
+            gap: 20px;
+            padding: 10px 0;
+            margin-top: 30px;
+        }
+
+        .gallery-container img {
+            width: 500px; /* Increased size of gallery images */
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+</style>
+    </style>
+</head>
+<body>
+
+<!-- Navigation Area -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="aboutme.html">About Me</a>
+    <div class="dropdown">
+        <button class="dropbtn">Education</button>
+        <div class="dropdown-content">
+            <a href="edu.html">Elementary & Middle School</a>
+            <a href="highschool.html">Highschool & Diploma</a>
+        </div>
+    </div>
+    <a href="myhobby.html">My Hobby</a>
+    <a href="gallery.html">My Gallery</a>
+    <a href="family.html">Family</a>
+    <a href="friends.html">Friends</a>
+</nav>
+
+
+
+<center><h1>My Love</h1></center>
+
+<div class="content">
+    <p>Here is some information about my family. These are the special people who support and inspire me every day.</p>
+
+
+    <table>
+        <tr>
+            <td><img src="images/eid3.jpg" alt="Family Image"></td>
+             </tr>
+         <tr>
+            <td>Love of my life is what my siblings are. They are my joyful, sad, crying, fighting buddy. Everybody of us approaches problems in a different way. We fight a lot when we misinterpret each other and make apologies the following day. Though they nudge me constantly, I always love them.My oldest sister works as a clerk in accounting. In order to complete her degree, my second sister interned. Although being a year younger than me, my younger sister and I are very different. Whether it's our fashion taste, our academic standing, or anything else! Despite these disagreements, we have always supported one another when needed. She is a student at UiTM Jengka right now. Additionally, my 16-year-old youngest is currently preparing for her mock trial SPM.</td>
+        </tr>
+    </table>
+    </table>
+</div>
+
+<!-- Family Members with Hover Overlay in a Side-by-Side Layout -->
+<div class="content">
+    <div class="family-members-container">
+        <div class="image-container">
+            <img src="images/bona.jpg" alt="Nurul Sabrina">
+            <div class="image-overlay">
+                <div>
+                    <h3>Nurul Sabrina</h3>
+                    <p>Eldest sister</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="images/angah.jpg" alt="Nurul Imanina">
+            <div class="image-overlay">
+                <div>
+                    <h3>Nurul Imanina</h3>
+                    <p>Second sister</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="images/asha.jpg" alt="Nurul Natasha">
+            <div class="image-overlay">
+                <div>
+                    <h3>Nurul Natasha</h3>
+                    <p>Me</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="family-members-container">
+        <div class="image-container">
+            <img src="image/ya.jpg" alt="Nurul Syahirah">
+            <div class="image-overlay">
+                <div>
+                    <h3>Nurul Syahirah</h3>
+                    <p>Fourth sister</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="images/anis.jpg" alt="Nurul Anis Suraya">
+            <div class="image-overlay">
+                <div>
+                    <h3>Nurul Anis Suraya</h3>
+                    <p>Youngest</p>
+                </div>
+            </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="gallery-container">
+    <img src="images/graduate.jpg">
+    <img src="images/papa.jpg">
+    <img src="images/car.jpg">
+    <img src="image/out.jpg">
+    <img src="image/sibs.jpg">
+    <img src="image/trio.jpg">
+    <img src="images/hang.jpg">
+    <img src="images/decbb.jpg">
+    <img src="image/yaa.jpg">
+    <img src="images/kaylaa.jpg">
+    <img src="image/twin.jpg">
+    <img src="images/baby.jpg">
+    <img src="images/18.jpg">
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<div class="social-bar">
+    <a href="https://instagram.com/tsharahim" target="_blank" class="instagram" title="Instagram">IG</a>
+    <a href="https://x.com/sharosee__" target="_blank" class="x" title="X (formerly Twitter)">X</a>
+    <a href="https://www.youtube.com/@nrulntasha2" target="_blank" class="youtube" title="YouTube">YT</a>
+</div>
+
+<button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    window.onscroll = function() {
+        const button = document.querySelector('.back-to-top');
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    };
+</script>
+
+<footer>
+    <p>&copy; 2024 Shasha Personal Website. All rights reserved.</p>
+    <p class="disclaimer">This website is best viewed in modern browsers like Chrome, Firefox, or Safari. Last updated: December 2024.</p>
+</footer>
+
+</body>
+</html>

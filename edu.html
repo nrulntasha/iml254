@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #dcc3f1;
+        }
+
+        header {      
+            height: 200px;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        nav {
+            background-color: #a384af;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Dropdown Menu */
+        nav .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        nav .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 20px;
+            background-color: #a384af;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+        }
+
+        nav a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: black;
+        }
+
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #a384af;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        nav .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        nav .dropdown-content a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .content img {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px 0;
+        }
+
+        .gallery img {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+        }
+
+        /* Table with image section */
+        table {
+            width: 70%; /* Adjust table width */
+            margin: 20px auto; /* Center the table */
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        /* Photo Grid */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .column {
+            flex: 25%;
+            max-width: 25%;
+            padding: 0 10px;
+        }
+
+        .column img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #6e4c7b;
+            color: white;
+            text-align: center;
+            padding: 0.5px;
+            position: fixed;
+            width: 100%;
+            font-size: 0.6em;
+            bottom: 0;
+        }
+        .disclaimer {
+            font-size: 0.75em;
+            color: #ccc;
+        }
+
+        /* Sticky Social Media Bar */
+        .social-bar {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .social-bar a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-bar a:hover {
+            background-color: #ddd;
+        }
+
+        .social-bar a.instagram { background-color: #C13584; color: white; }
+        .social-bar a.x { background-color: #1DA1F2; color: white; }
+        .social-bar a.youtube { background-color: #FF0000; color: white; }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 60px; /* Above the footer */
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .back-to-top:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Area -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="aboutme.html">About Me</a>
+    <div class="dropdown">
+        <button class="dropbtn">Education</button>
+        <div class="dropdown-content">
+            <a href="edu.html">Elementary & Middle School</a>
+            <a href="highschool.html">Highschool & Diploma</a>
+        </div>
+    </div>
+    <a href="myhobby.html">My Hobby</a>
+    <a href="gallery.html">My Gallery</a>
+    <a href="family.html">Family</a>
+    <a href="friends.html">Friends</a>
+</nav>
+
+
+
+<!-- Table with Image Section -->
+<center><h2>Elementary & Middle School</h2></center>
+<table>
+    <tr>
+        <th>Logo</th>
+        <th>Name & Address</th>
+        <th>Experiences</th>
+    </tr>
+    <tr>
+        <td><img src="image/kemas.jpeg"></td>
+        <td>Tabika KEMAS Sg. Karang Darat</td>
+        <td>I began kindergarten at a young age. My late mother brought me along when she worked as a preschool teacher. When I was three years old, I began to follow my mother about as she worked. My mother particularly enjoys encouraging me to participate in events. She persuaded me to participate in an Arabic-themed competition for dancing, theatre, and choir.</td>
+    </tr>
+    <tr>
+        <td><img src="image/sksk.jpeg"></td>
+        <td>Sekolah Kebangsaan Sungai Karang</td>
+        <td>Sadly, I only spent one year at the school since my late mother must go to another preschool for the following year. Though I don't recall many memories there, I do remember my mum waiting for me for playtime and dining with me.</td>
+    </tr>
+    <tr>
+        <td><img src="image/skbm.jpeg"></td>
+        <td>Sekolah Kebangsaan Balok Makmur</td>
+        <td>I could describe my early years as typical. I'm just another kid that does their best in school and makes the most of their time there. I participated in certain debates and story-telling contests.</td>
+    </tr>
+</table>
+
+<!-- Photo Grid Section -->
+<div class="row">
+    <div class="column">
+        <img src="image/acts.jpg" alt="Acting Event">
+        <img src="image/primary.jpg" alt="Primary School Event">
+        <img src="images/kinder.jpg" alt="Kindergarten Event">
+    </div>
+    <div class="column">
+        <img src="image/act2.jpg" alt="Another Acting Event">
+        <img src="image/choir.jpg" alt="Choir Performance">
+        <img src="image/peace.jpg" alt="Peace Event">
+    </div>
+</div>
+
+<!-- Sticky Social Media Bar -->
+<div class="social-bar">
+    <a href="https://instagram.com/tsharahim" target="_blank" class="instagram" title="Instagram">IG</a>
+    <a href="https://x.com/sharosee__" target="_blank" class="x" title="X (formerly Twitter)">X</a>
+    <a href="https://www.youtube.com/@nrulntasha2" target="_blank" class="youtube" title="YouTube">YT</a>
+</div>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+<script>
+    // Function to scroll to the top smoothly
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    // Show or hide the "Back to Top" button based on scroll position
+    window.onscroll = function() {
+        const button = document.querySelector('.back-to-top');
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    };
+</script>
+<br>
+<br>
+<br>
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2024 Shasha Personal Website. All rights reserved.</p>
+    <p class="disclaimer">This website is best viewed in modern browsers like Chrome, Firefox, or Safari. Last updated: December 2024.</p>
+</footer>
+
+</body>
+</html>
+
+
