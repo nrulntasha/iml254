@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #dcc3f1;
+        }
+
+        header {
+            height: 200px;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        nav {
+            background-color: #a384af;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Dropdown Menu */
+        nav .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        nav .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 20px;
+            background-color: #a384af;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+        }
+
+        nav a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: black;
+        }
+
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #a384af;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        nav .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        nav .dropdown-content a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .content img {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #6e4c7b;
+            color: white;
+            text-align: center;
+            padding: 0.5px;
+            position: fixed;
+            width: 100%;
+            font-size: 0.6em;
+            bottom: 0;
+        }
+        .disclaimer {
+            font-size: 0.75em;
+            color: #ccc;
+        }
+
+        /* Sticky Social Media Bar */
+        .social-bar {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .social-bar a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-bar a:hover {
+            background-color: #ddd;
+        }
+
+        .social-bar a.instagram { background-color: #C13584; color: white; }
+        .social-bar a.x { background-color: #1DA1F2; color: white; }
+        .social-bar a.youtube { background-color: #FF0000; color: white; }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 60px; /* Above the footer */
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .back-to-top:hover {
+            opacity: 1;
+        }
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+        }
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: white;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        /* Container around content */
+        .container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        /* The circles on the timeline */
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid #b793c4;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Place the container to the left */
+        .left {
+            left: 0;
+        }
+
+        /* Place the container to the right */
+        .right {
+            left: 50%;
+        }
+
+        /* Add arrows to the left container (pointing right) */
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+
+        /* Add arrows to the right container (pointing left) */
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        /* Fix the circle for containers on the right side */
+        .right::after {
+            left: -16px;
+        }
+
+        /* The actual content */
+        .content {
+            padding: 20px 30px;
+            background-color: #dbcae1;
+            position: relative;
+            border-radius: 6px;
+        }
+
+        /* Media queries - Responsive timeline on screens less than 600px wide */
+        @media screen and (max-width: 600px) {
+            /* Place the timelime to the left */
+            .timeline::after {
+                left: 31px;
+            }
+
+            /* Full-width containers */
+            .container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            /* Make sure that all arrows are pointing leftwards */
+            .container::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+
+            /* Make sure all circles are at the same spot */
+            .left::after, .right::after {
+                left: 15px;
+            }
+
+            /* Make all right containers behave like the left ones */
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Area -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="aboutme.html">About Me</a>
+    <div class="dropdown">
+        <button class="dropbtn">Education</button>
+        <div class="dropdown-content">
+            <a href="edu.html">Elementary & Middle School</a>
+            <a href="highschool.html">Highschool & Diploma</a>
+        </div>
+    </div>
+    <a href="myhobby.html">My Hobby</a>
+    <a href="gallery.html">My Gallery</a>
+    <a href="family.html">Family</a>
+    <a href="friends.html">Friends</a>
+</nav>
+
+
+
+<center><h1>Get to know me!</h1></center>
+
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/2KdY_d1uU-Y?si=eaMJlZl_6F-1jOBL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
+
+<div class="timeline">
+  <div class="container left">
+    <div class="content">
+      <h2>My Background</h2>
+      <p>I will once more announce myself as Nurul Natasha Bt Abdul Rahim. I go by Shasha with my pals. I was born in Kuantan's St. Chong Clinic on June 28, 2004. All five of my siblings are girls. I'm the middle child. They said milddle child suffer the most. To be honest, I don't dispute it. I used to believe that because of our age difference, my sisters despise me. My second sister was three years older than my first, who was six years older. We were living at different levels, and the age difference alone made me uneasy. As time passes, I discover that they were a little uncomfortable around me because we didn't have much time together because they were attending boarding school. My mother passed away in 2019, yet we were reunited in the end. After being married, my first sister had a really cute daughter named Hanna Mikayla. She had me totally enamoured!</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>Short Poem</h2>
+      <p>"Nothing ever ends poetically. It ends and we turn it into poetry. All that blood was never once beautiful. It was always just red." - Kait Rokowski</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>Few things about me</h2>
+      <p>My personality traits is ENTJ-T. Still, when I'm with people I feel sensitive over little things. Though occasionally I find it exhausting and unpleasant, I adore cooking for my family; it feels nice to know they enjoy the meal I created. When I was nine years old, I started cooking. I made basic fried rice for my first dinner. First, it was failure; I had too much ketchup sauce. Nonetheless, I persisted! My mum then helps me to precisely measure components. Finding out how to cook makes me rather happy. I have been preparing meals for my family ever since my mother died.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>Personal Interest</h2>
+      <p>I love to read, even though it may sound corny. I read a lot of romance novels in English! Usually, I read on my iPad or phone. I'm going to download the e-book and read it at my leisure. I'm a huge photography enthusiast. Flowers, portraits, or anything else can be used. I've included a handful of my photos in my gallery. Every time I am working on a task, I also like to listen to music. I listen to a select few playlists constantly. Please jump into my Hobby to learn more!</p>
+    </div>
+  </div>
+<div class="container left">
+    <div class="content">
+      <h2>Experiences</h2>
+      <p>I work at IIUM hospital food booth after completing my spm. After that, I work three months as HR officer for a small company close to my residence till I start private university's study. Three weeks later, I was admitted to UiTM Kedah, Diploma in Library Informatics. Then I signed up for Jawatan Perwakilan Kolej (JPK) Murni session 23/24 in my second semester. I first just try my luck since I get bored quickly when I'm not active. Little did I know when I started JPK that it would teach me time management skills and perspective management on us and others. Being in the company itself was so much joy, even though I don't think I should relate certain unpleasant experiences.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="social-bar">
+    <a href="https://instagram.com/tsharahim" target="_blank" class="instagram" title="Instagram">IG</a>
+    <a href="https://x.com/sharosee__" target="_blank" class="x" title="X (formerly Twitter)">X</a>
+    <a href="https://www.youtube.com/@nrulntasha2" target="_blank" class="youtube" title="YouTube">YT</a>
+</div>
+
+<button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    window.onscroll = function() {
+        const button = document.querySelector('.back-to-top');
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    };
+</script>
+<br>
+<br>
+<br>
+<footer>
+    <p>&copy; 2024 Shasha Personal Website. All rights reserved.</p>
+    <p class="disclaimer">This website is best viewed in modern browsers like Chrome, Firefox, or Safari. Last updated: December 2024.</p>
+</footer>
+
+</body>
+</html>
